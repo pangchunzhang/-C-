@@ -1,0 +1,233 @@
+define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+#include<windows.h>
+#include<stdlib.h>
+int main()
+{
+	//int a = 0;
+	//for (a = 1; a <= 100; a++)
+	//{
+	//	if (a % 3 == 0)
+	//		printf("%d\n", a);
+	//}
+	/*int a = 0;
+	int b = 0;
+	int i = 0;
+	scanf("%d%d", &a, &b);
+	while (a % b)
+	{
+		i = a % b;
+		a = b;
+		b = i;
+	}
+
+	printf("%d", i);*/
+	int y = 0;
+	int c = 0;
+	for (y = 1000; y <= 2000; y++)//1.能被4整除不能被100整除2.能被400整除
+	{
+		if (y % 4 == 0 && y % 100 != 0)
+		{
+			printf("%d\n", y);
+			c++;
+		}
+		else if (y % 400 == 0)
+		{
+			printf("%d\n", y);
+			c++;
+		}
+	}
+	printf("%d", c);
+	return 0;
+
+
+
+二
+#include<windows.h>
+#include<stdlib.h>
+int main()
+{
+	int i = 0;
+	double c = 0.0;
+	int f = 1;
+	for (i = 1; i < 100; i++)
+	{
+		c += f*1.0 / i;
+		f = -f;
+	}
+	printf("%lf", c);
+	return 0;
+}
+三
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+#include<windows.h>
+#include<stdlib.h>
+#include<time.h>
+void menu()
+{
+	printf(" * ***************************************\n");
+	printf(" * ****1.play       0.exit      **********\n");
+	printf(" * ***************************************\n");
+}
+//RAND_MAX
+
+void game()
+{
+	int r = 0;
+	r=rand() % 100 - 1;
+	int guess = 0;
+	while (1)
+	{
+		printf("请输入数字：");
+		scanf("%d", &guess);
+		if (guess > r)
+		{
+			printf("猜大了");
+		}
+		else if (guess < r)
+		{
+			printf("猜小了");
+
+		}
+		else if (guess = r)
+		{
+			printf("你真牛");
+			break;
+		}
+	}
+
+	printf("%d\n", r);
+	//生成随机数的函数
+	//1.生成随机数
+	//2.猜数字
+}
+int main()
+{
+	int input = 0;
+	srand((unsigned int)time(NULL));//时间戳：当前时间-计算机的起始时间（1970.1.1.0：0:0）
+	do
+	{
+		menu();
+		printf("请选择：");
+		scanf("%d", &input);
+		switch (input)
+		{
+		case 1:
+			game();
+			break;
+		case 0:
+			printf("退出游戏\n");
+			break;
+		default:
+			printf("选择错误\n");
+			break;
+
+		}
+	} while (input);
+
+	/*int a = 38;
+	int i = 0;
+	
+	for (i = 1; i <= 100; i++)
+	{
+		printf("请输入：");
+		scanf("%d", &i);
+		if (i < a)
+			printf("猜小了");
+		else if (i > a)
+			printf("猜大了");
+		else if (i == a)
+		{
+			printf("你真牛");
+			break;
+		}
+	}*/
+	return 0;
+
+}
+五
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+#include<windows.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main()
+
+{
+	char input[20] = { 0 };
+	//shutdown-s-t 60
+	system("shutdown -s -t 120");
+again:
+	printf("请注意，你的电脑将在两分钟内关机，如果输入：我是猪，就取消关机\n请输入：");
+	scanf("%s", input);
+
+	if (strcmp(input, "我是猪") == 0)
+	{
+		printf("很有自知之明");
+		system(" shutdown -a");
+
+	}
+	else
+	{
+		goto again;
+
+	}
+	return 0;
+}
+六
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+#include<windows.h>
+#include<stdlib.h>
+#include<time.h>
+void Swap(int* pa, int* pb)
+{
+	int z = 0;
+	z = *pa;
+	*pa = *pb;
+	*pb = z;
+}
+
+int main()
+
+{
+	int a = 10;
+	int b = 20;
+	printf("交换前：a=%d b=%d",a,b);
+	Swap(&a, &b);
+	printf("交换后：a=%d b=%d", a, b);
+	return 0;  
+}
+七
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+#include<windows.h>
+#include<stdlib.h>
+#include<time.h>
+int getmax(int x, int y)
+{
+	int z = 0;
+	if (x > y)
+		z = x;
+	else
+		z = y; 
+	return z;
+}
+
+int main()
+
+{
+	int a = 10;
+	int b = 20;
+	int max=getmax(a, b);
+	printf("max=%d",max);
+
+	return 0;
+}
