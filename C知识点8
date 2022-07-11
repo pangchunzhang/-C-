@@ -1,0 +1,108 @@
+#include<string.h>
+#include<windows.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main()
+
+{
+	int a = 0;
+	char b = 'q';
+	int arr[10] = { 0 };
+	printf("%d\n", sizeof(a));
+	printf("%d\n", sizeof(int));
+
+	printf("%d\n", sizeof(b));
+	printf("%d\n", sizeof(char));
+
+	printf("%d\n", sizeof(arr));
+	printf("%d\n", sizeof(int [10]));//
+	return 0;
+}
+二
+
+void text2(char ch[])
+{
+	printf("%d\n", sizeof(ch));
+}
+
+int main()
+
+{
+	int arr[10] = { 0 };
+	char ch[10] = { 0 };
+	printf("%d\n", sizeof(arr));
+	printf("%d\n", sizeof(ch));
+	text1(arr);
+	text2(ch);
+	return 0;
+}
+三
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+#include<windows.h>
+#include<stdlib.h>
+#include<time.h>
+
+
+int main()
+
+{
+
+	int i = 0, a = 0, b = 2, c = 3, d = 4;
+	i = a++ && ++b && d++;
+	printf("a=%d\n b=%d\n c=%d\n d=%d\n ", a, b, c, d);
+	return 0;
+}
+
+四
+struct stu
+{
+	char name[20];
+	int age;
+	char id[20];
+};
+int main()
+
+{
+	int a = 10;
+	//使用struct stu创建了s1
+	struct stu s1={"zhangsan,20,2375600"};
+	printf("%s\n", s1.age);
+	printf("%s\n", s1.name);
+	printf("%s\n", s1.id);
+	return 0;
+}
+五
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+#include<windows.h>
+#include<stdlib.h>
+#include<time.h>
+
+
+int main()
+
+{
+	char a = 3;
+	//3：00000000000000000000000000000011
+	//char只能放一个字节
+	//00000011--a
+	// 00000000000000000000000000000011--a提升
+	// 00000000000000000000000001111111--b提升
+	// 00000000000000000000000010000010--a+b提升
+	// 100000010---a+b
+	// 11111111111111111111111110000010--a+b提升后得补码
+	// 10000000000000000000000001111110--原码
+	// -126
+	//01111111--b
+	char b = 127;
+	char c = a + b;
+	printf("%d\n", c);
+
+	return 0;
+}
+
+
